@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:localbarbershop/Components/barberListItem.dart';
+import 'package:localbarbershop/data/barberList.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
           "BarberHub",
           style: TextStyle(color: Colors.black),
         ),
-         leading: Builder(
+        leading: Builder(
             builder: (context) => IconButton(
                   onPressed: () {
                     Scaffold.of(context).openDrawer();
@@ -33,16 +35,16 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: Drawer(
         child: Container(
-          color: Color.fromARGB(255, 177, 184, 190), // Set the menu bar color to black
+          color: Color.fromARGB(
+              255, 177, 184, 190), // Set the menu bar color to black
           child: ListView(
             padding: EdgeInsets.zero,
-            children:  <Widget>[
+            children: <Widget>[
               DrawerHeader(
-                decoration: BoxDecoration(
-                  // color: Colors.black, // Set the menu bar color to black
-                ),
-                child: Image.asset("lib/Images/cutandshave.png")
-              ),
+                  decoration: BoxDecoration(
+                      // color: Colors.black, // Set the menu bar color to black
+                      ),
+                  child: Image.asset("lib/Images/cutandshave.png")),
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text(
@@ -52,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-             ListTile(
+              ListTile(
                 leading: Icon(Icons.info),
                 title: Text(
                   'info',
@@ -64,6 +66,10 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+      body: ListView(
+        BarberList barberList = barberList([]),
+        children: [BarberListItem(barberList: ,)],
       ),
     );
   }

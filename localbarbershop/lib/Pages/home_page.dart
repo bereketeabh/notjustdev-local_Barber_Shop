@@ -67,10 +67,24 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              backgroundColor:  Colors.grey,
+              content: Container(
+                height: 100,
+                decoration: BoxDecoration(),
+              ),
+            );
+          },
+        );
+      }),
       body: ListView(
-        BarberList barberList = barberList([]),
-        children: [BarberListItem(barberList: ,)],
-      ),
+          // BarberList barberList =[];
+          // children: [BarberListItem(barberList:barberList ,)],
+          ),
     );
   }
 }
